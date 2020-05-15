@@ -1,5 +1,5 @@
 #init
-Import-Module .\posh\modules\dndTranslator.psm1 -verbose -Force
+Import-Module .\dndTranslatorPOSH\dndTranslatorPOSH\modules\dndTranslator.psm1 -verbose -Force
 
 # Setup players
 $players = @() #Array to hold all the players
@@ -40,9 +40,9 @@ $players += $player3
 $messageFromGM = "The person you are looking for may have come through this area, a few coins may help me remember."
 # Do the thing
 
-$cipherText = Set-TranslatedMessage -key 25 -message $messageFromGM
-$plainText = Get-TranslatedMessage -key 25 -message $cipherText
+$cipherText = Set-TranslatedMessage -key 5 -message $messageFromGM
+$plainText = Get-TranslatedMessage -key 5 -message $cipherText
 
-Set-TranslatedMessage -key 25 -message $messageFromGM
-Get-TranslatedMessage -key 25 -message $cipherText
+Set-TranslatedMessage -key 5 -message $messageFromGM
+Get-TranslatedMessage -key 5 -message $cipherText
 
