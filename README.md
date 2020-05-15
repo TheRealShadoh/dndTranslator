@@ -1,1 +1,10 @@
 # dndTranslator
+
+
+
+
+
+
+## Team
+GMZeirith
+exeldrian 
