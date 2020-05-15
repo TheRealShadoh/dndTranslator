@@ -16,7 +16,7 @@ $player2 = @{
     charRace = 'Dwarf'
     charLanguages = @(
         'Common',
-        'Dwarvenz'
+        'Dwarven'
     )
 }
 $player2 = @{
