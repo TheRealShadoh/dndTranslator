@@ -3,6 +3,13 @@
 - GMZeirith
 - exeldrian
 
+## Basic function
+GM Screen
+```dndTranslatorPOSH_GMScreen.ps1```
+
+Player screen
+``` dndTranslatorPOSH_PlayerScreen.ps1 ```
+
 ## TODO
 Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
 - Map initial languages to a key
