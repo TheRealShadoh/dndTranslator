@@ -41,3 +41,18 @@ Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
 - Custom fonts?
 - Discord or simple copy/paste??
 - Vocalize or text based on context
+
+
+## Languages
+Common
+Ork
+Goblin
+Dragon
+Elf
+Dwarf
+Underdark
+Abyssal
+Infernal
+Giant
+Gnome
+Halfling
