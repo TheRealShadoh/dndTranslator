@@ -24,16 +24,13 @@ The person you are looking for may have come through this area, a few coins may 
 
 ## TODO
 Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
-- Map initial languages to a key
 - Import players:languages into GM screen from JSON
 - Allow players:languages  to be created within GUI
-- Place language next to each player for each language the know
+- Place language next to each player for each language they know
 - Dynamic creation of available language buttons
 - Language buttons click event for encoding the GM Message into a language and copying to clipboard + a console(?)
-- Encoded message tagged with plaintext to identify the language to the recipients screen ```[language] asdas aweer azxfc ryryrtwwe ```  May want to embed this as to not give away species based on messages
 - Player screen import a config file (JSON) that sets their language options
 - Create a player screen paste button
-- Auto decode based on tag received
 
 
 ## General flow
