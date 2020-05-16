@@ -125,48 +125,6 @@ function Set-TranslatedMessage {
     return $cipherText
 
 }
-function Get-TranslatedMessage {
-    param (
-        [Parameter(Mandatory = $true)]
-        $LanguageFile,
-        [Parameter(Mandatory = $true)]
-        [string]$Language,
-        [Parameter(Mandatory = $true)]
-        [string]$Message,
-        [Parameter(Mandatory = $false)]
-        [int]$Salt = 0 #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
-
-    )
-    $splitMessage = Get-CipherTag -Message $Message
-    $originalMessage = $message
-    $message = $splitMessage[1]
-    $ciphertag = $splitMessage[0]
-    if ($LanguageFile.langKeys.name -notcontains $Language) {
-        return msg console "Select a supported language"
-    }
-    $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
-    $plainTag = "["+($LanguageFile.langKeys.where( { $_.name -eq $language }).name)+"]"
-
-    if ($salt -ne 0) {
-        $key = $key + $Salt #remove salt
-    }
-
-
-    $plainText = $message
-    $plainTextArray = $plainText.tocharArray()
-    $cipherTextArray = @()
-    foreach ($text in $plainTextArray) {
-        if ($text -eq ' ') {
-            $cipherTextArray += $text
-            continue
-        }
-        $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
-        $cipherTextArray += $cipherText
-    }
-    $cipherText = $plainTag + ($cipherTextArray -join "")
-    return $cipherText
-
-}
 function Get-CipherTag {
     param(
         $Message
@@ -209,10 +167,10 @@ function Get-TranslatedMessageAuto {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
         $cipherTextArray += $cipherText
     }
-    $plainTag = "["+($LanguageFile.langKeys.where( { $_.tag -eq $cipherTag }).name)+"]"
+    $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
 
     $cipherText = $plainTag + ($cipherTextArray -join "")
-    return $cipherText
+    return Write-Output $cipherText
 
 }
 
@@ -267,3 +225,50 @@ function Get-MappedNumber {
         }
     }
 }
+
+
+<# DEPRECATED
+function Get-TranslatedMessage {
+    param (
+        [Parameter(Mandatory = $true)]
+        $LanguageFile,
+        [Parameter(Mandatory = $true)]
+        [string]$Language,
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        [Parameter(Mandatory = $false)]
+        [int]$Salt = 0 #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
+
+    )
+    $splitMessage = Get-CipherTag -Message $Message
+    $originalMessage = $message
+    $message = $splitMessage[1]
+    $ciphertag = $splitMessage[0]
+    if ($LanguageFile.langKeys.name -notcontains $Language) {
+        return msg console "Select a supported language"
+    }
+    $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
+    $plainTag = "["+($LanguageFile.langKeys.where( { $_.name -eq $language }).name)+"]" + ":: "
+
+    if ($salt -ne 0) {
+        $key = $key + $Salt #remove salt
+    }
+
+
+    $plainText = $message
+    $plainTextArray = $plainText.tocharArray()
+    $cipherTextArray = @()
+    foreach ($text in $plainTextArray) {
+        if ($text -eq ' ') {
+            $cipherTextArray += $text
+            continue
+        }
+        $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
+        $cipherTextArray += $cipherText
+    }
+    $cipherText = $plainTag + ($cipherTextArray -join "")
+    return $cipherText
+
+}
+#>
+
