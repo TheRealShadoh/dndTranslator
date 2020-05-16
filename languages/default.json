@@ -1,8 +1,8 @@
 {
-    "langKeys":{
-        
+    "langKeys": {
+        "Goblin": 20
     },
-    "langMap":{
+    "langMap": {
         "0": "a",
         "1": "b",
         "2": "c",
@@ -55,30 +55,5 @@
         "49": "X",
         "50": "Y",
         "51": "Z"
-
-    }
-
-}
-
-{
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
-                    },
-					"GlossSee": "markup"
-                }
-            }
-        }
     }
 }

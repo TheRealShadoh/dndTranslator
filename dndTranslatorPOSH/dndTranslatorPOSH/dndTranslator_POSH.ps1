@@ -1,6 +1,6 @@
 #init
 Import-Module .\dndTranslatorPOSH\dndTranslatorPOSH\modules\dndTranslator.psm1 -verbose -Force
-
+$langMap = Get-Content .
 # Setup players
 $players = @() #Array to hold all the players
 
