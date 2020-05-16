@@ -55,7 +55,7 @@ Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
 - Vocalize or text based on context
 
 
-### SupportedLanguages
+### Supported Languages
 - Common
 - Orc
 - Goblin
@@ -74,3 +74,6 @@ Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
  - A-Z
  - 0-9
  - . ! ? ( ) , [ ]
+
+ ### Known issues
+ - If key is too large (100 known as bad), some letters will fail to be decoded. Report an issue with the plain text, language, key (if not default), and the cipher text.

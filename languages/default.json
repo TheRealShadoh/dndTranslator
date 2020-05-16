@@ -2,7 +2,7 @@
   "langKeys": [
     { "name": "Common", "key": 0, "tag": "[Common]" },
     { "name": "Orc", "key": 10, "tag": "[K3zE8mSvoV]" },
-    { "name": "Goblin", "key": 100, "tag": "[jG0aqmb8zk]" },
+    { "name": "Goblin", "key": 15, "tag": "[jG0aqmb8zk]" },
     { "name": "Draconic", "key": 20, "tag": "[OtVtX51OMc]" },
     { "name": "Elvish ", "key": 25, "tag": "[jZrtzGvxfQ]" },
     { "name": "Dwarvish ", "key": 30, "tag": "[FbFsBISNSg]" },

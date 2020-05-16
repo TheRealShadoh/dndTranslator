@@ -44,7 +44,6 @@ $messageFromGMsalted = "The person you are looking for may have come through thi
 $messageFromGMAuto = "The person you are looking for may have come through this area, a few coins may help me remember. [I WAS AUTO DECODED]"
 
 # Do the thing
-
 $cipherText = Set-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $messageFromGM
 $cipherText
 $plainText = Get-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $cipherText
@@ -59,3 +58,4 @@ $cipherText = Set-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -m
 $cipherText
 $plainText = Get-TranslatedMessageAuto -LanguageFile $langMap -message $cipherText
 $plainText
+
