@@ -141,7 +141,7 @@ function Get-TranslatedMessage {
     }
     $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
     if ($salt -ne 0) {
-        $key = $key - $Salt #remove salt
+        $key = $key + $Salt #remove salt
     }
 
 
@@ -194,14 +194,14 @@ function Get-MappedNumber {
         'Decode' {
             $inputMappedNumber = $LanguageFile.langMap.IndexOf([string]$letter)#[int]($LanguageFile.langMap.where( { $_.char -ceq $letter }).number)
             $shiftedMappedNumber = $inputMappedNumber - $Key
-            if ($shiftedMappedNumber -gt $LanguageFile.langMap.count) {
+            if ($shiftedMappedNumber -lt $LanguageFile.langMap.count) {
                 [int]$overage = $shiftedMappedNumber - $LanguageFile.langMap.count
                 #How much did the shift exceed the numerical range
-                if ($overage -gt 0) {
+                if ($overage -lt 0) {
                     Do {
                         $shiftedMappedNumber = 0 + $overage
-                        $overage = $shiftedMappedNumber - $LanguageFile.langMap.count   #How much did the shift exceed the numerical range
-                    }  while ($overage -gt 0)
+                        $overage = $shiftedMappedNumber + $LanguageFile.langMap.count   #How much did the shift exceed the numerical range
+                    }  while ($overage -lt 0)
                 }
             }
             $shiftedMappedChar = $LanguageFile.langMap[$shiftedMappedNumber]#($LanguageFile.langMap.where( { $_.number -eq $shiftedMappedNumber }).char)

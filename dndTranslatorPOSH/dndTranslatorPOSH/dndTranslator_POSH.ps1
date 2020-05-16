@@ -40,9 +40,15 @@ $players += $player2
 $players += $player3
 # Input
 $messageFromGM = "The person you are looking for may have come through this area, a few coins may help me remember."
+$messageFromGMsalted = "The person you are looking for may have come through this area, a few coins may help me remember. [I WAS SALTED]"
+
 # Do the thing
 
 $cipherText = Set-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $messageFromGM
 $cipherText
 $plainText = Get-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $cipherText
+$plainText
+$cipherText = Set-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $messageFromGMsalted -Salt 5
+$cipherText
+$plainText = Get-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $cipherText -Salt 5
 $plainText

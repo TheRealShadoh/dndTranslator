@@ -10,6 +10,18 @@ GM Screen
 Player screen
 ``` dndTranslatorPOSH_PlayerScreen.ps1 ```
 
+Converted without salt, you trust your players
+```
+fLI TIVWSR 2SY EVI PSSOMRK JSV QE2 LEZI GSQI XLVSYKL XLMW EVIEB E JI0 GSMRW QE2 LIPT QI VIQIQFIVw
+The person you are looking for may have come through this area, a few coins may help me remember.
+```
+
+Converted with salt, players will not be able to decode the message without you giving them the salt number.
+```
+kQN YN01XW 7X3 J0N UXXTRWP OX0 VJ7 QJ4N LXVN 2Q0X3PQ 2QR1 J0NJG J ON5 LXRW1 VJ7 QNUY VN 0NVNVKN0B H] n9j j9ck(!I
+The person you are looking for may have come through this area, a few coins may help me remember. [I WAS SALTED]
+```
+
 ## TODO
 Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
 - Map initial languages to a key
@@ -61,4 +73,4 @@ Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
  - a-z
  - A-Z
  - 0-9
- - . ! ? ( ) ,
+ - . ! ? ( ) , [ ]

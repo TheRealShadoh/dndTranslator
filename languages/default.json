@@ -1,7 +1,7 @@
 {
   "langKeys": [
-    { "name": "Common", "key": 0 },
-    { "name": "Orc", "key": 10 },
+    { "name": "Common", "key": 0, "tag" : "Common"},
+    { "name": "Orc", "key": 10, "tag" : "Common" },
     { "name": "Goblin", "key": 100 },
     { "name": "Draconic", "key": 20 },
     { "name": "Elvish ", "key": 25 },
@@ -81,7 +81,9 @@
     "!",
     "(",
     ")",
-    ","
+    ",",
+    "[",
+    "]"
   ],
   "langMapLegacy": [
     { "number": "0", "char": "a" },
