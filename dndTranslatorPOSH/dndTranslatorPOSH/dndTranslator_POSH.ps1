@@ -1,6 +1,8 @@
 #init
 Import-Module .\dndTranslatorPOSH\dndTranslatorPOSH\modules\dndTranslator.psm1 -verbose -Force
-$langMap = Get-Content .
+$langMap = Get-Content .\languages\default.json -Raw
+$langMap = $langMap | ConvertFrom-Json
+
 # Setup players
 $players = @() #Array to hold all the players
 
@@ -40,9 +42,7 @@ $players += $player3
 $messageFromGM = "The person you are looking for may have come through this area, a few coins may help me remember."
 # Do the thing
 
-$cipherText = Set-TranslatedMessage -key 5 -message $messageFromGM
-$plainText = Get-TranslatedMessage -key 5 -message $cipherText
-
-Set-TranslatedMessage -key 5 -message $messageFromGM
-Get-TranslatedMessage -key 5 -message $cipherText
-
+$cipherText = Set-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $messageFromGM
+$cipherText
+$plainText = Get-TranslatedMessage -LanguageFile $langMap -Language "Goblin" -message $cipherText
+$plainText

@@ -43,16 +43,22 @@ Basic PowerShell GUI thrown together to proof of concept the flow. Next steps...
 - Vocalize or text based on context
 
 
-## Languages
-Common
-Ork
-Goblin
-Dragon
-Elf
-Dwarf
-Underdark
-Abyssal
-Infernal
-Giant
-Gnome
-Halfling
+### SupportedLanguages
+- Common
+- Orc
+- Goblin
+- Draconic
+- Elvish
+- Dwarvish
+- Underdark
+- Abyssal
+- Infernal
+- Giant
+- Gnomish
+- Halfling
+
+### Supported characters
+ - a-z
+ - A-Z
+ - 0-9
+ - . ! ? ( ) ,
