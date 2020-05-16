@@ -2,16 +2,16 @@
   "langKeys": [
     { "name": "Common", "key": 0, "tag": "[Common]" },
     { "name": "Orc", "key": 10, "tag": "[K3zE8mSvoV]" },
-    { "name": "Goblin", "key": 15, "tag": "[jG0aqmb8zk]" },
-    { "name": "Draconic", "key": 20, "tag": "[OtVtX51OMc]" },
-    { "name": "Elvish ", "key": 25, "tag": "[jZrtzGvxfQ]" },
-    { "name": "Dwarvish ", "key": 30, "tag": "[FbFsBISNSg]" },
-    { "name": "Underdark", "key": 35, "tag": "[wkeih3M1pK]" },
-    { "name": "Abyssal", "key": 40, "tag": "[JsyvS1p5u2]" },
-    { "name": "Infernal", "key": 45, "tag": "[zQzfMjoefQ]" },
-    { "name": "Giant", "key": 50, "tag": "[GV3xomUU5t]" },
-    { "name": "Gnomish", "key": 55, "tag": "[MLPSuh1zwS]" },
-    { "name": "Halfling", "key": 60, "tag": "[kPA4Jk3Uil]" }
+    { "name": "Goblin", "key": 20, "tag": "[jG0aqmb8zk]" },
+    { "name": "Draconic", "key": 30, "tag": "[OtVtX51OMc]" },
+    { "name": "Elvish ", "key": 40, "tag": "[jZrtzGvxfQ]" },
+    { "name": "Dwarvish ", "key": 50, "tag": "[FbFsBISNSg]" },
+    { "name": "Underdark", "key": 30, "tag": "[wkeih3M1pK]" },
+    { "name": "Abyssal", "key": 70, "tag": "[JsyvS1p5u2]" },
+    { "name": "Infernal", "key": 80, "tag": "[zQzfMjoefQ]" },
+    { "name": "Giant", "key": 90, "tag": "[GV3xomUU5t]" },
+    { "name": "Gnomish", "key": 100, "tag": "[MLPSuh1zwS]" },
+    { "name": "Halfling", "key": 110, "tag": "[kPA4Jk3Uil]" }
   ],
   "langMap": [
     "a",

@@ -121,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTag  +($cipherTextArray -join "")
+    $cipherText = $cipherTag  + ($cipherTextArray -join "")
     return $cipherText
 
 }
@@ -138,6 +138,7 @@ function Get-TranslatedMessage {
 
     )
     $splitMessage = Get-CipherTag -Message $Message
+    $originalMessage = $message
     $message = $splitMessage[1]
     $ciphertag = $splitMessage[0]
     if ($LanguageFile.langKeys.name -notcontains $Language) {
@@ -232,7 +233,7 @@ function Get-MappedNumber {
         'Encode' {
             $inputMappedNumber = $LanguageFile.langMap.IndexOf([string]$letter) #[int]($LanguageFile.langMap.where( { $_.char -ceq $letter }).number)
             $shiftedMappedNumber = $inputMappedNumber + $Key
-            if ($shiftedMappedNumber -gt $LanguageFile.langMap.count) {
+            if ($shiftedMappedNumber -ge $LanguageFile.langMap.count) {
                 [int]$overage = $shiftedMappedNumber - $LanguageFile.langMap.count
                 #How much did the shift exceed the numerical range
                 if ($overage -gt 0) {
@@ -241,8 +242,11 @@ function Get-MappedNumber {
                         $overage = $shiftedMappedNumber - $LanguageFile.langMap.count   #How much did the shift exceed the numerical range
                     }  while ($overage -gt 0)
                 }
+                if($overage -eq 0){
+                    $shiftedMappedNumber = $overage
+                }
             }
-            $shiftedMappedChar = $LanguageFile.langMap[$shiftedMappedNumber]#($LanguageFile.langMap.where( { $_.number -eq $shiftedMappedNumber }).char)
+            $shiftedMappedChar = $LanguageFile.langMap[$shiftedMappedNumber] #($LanguageFile.langMap.where( { $_.number -eq $shiftedMappedNumber }).char)
             return $shiftedMappedChar
         }
         'Decode' {
@@ -251,7 +255,7 @@ function Get-MappedNumber {
             if ($shiftedMappedNumber -lt $LanguageFile.langMap.count) {
                 [int]$overage = $shiftedMappedNumber - $LanguageFile.langMap.count
                 #How much did the shift exceed the numerical range
-                if ($overage -lt 0) {
+                if ($overage -le 0) {
                     Do {
                         $shiftedMappedNumber = 0 + $overage
                         $overage = $shiftedMappedNumber + $LanguageFile.langMap.count   #How much did the shift exceed the numerical range
