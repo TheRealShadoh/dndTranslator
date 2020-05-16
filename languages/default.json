@@ -1,17 +1,17 @@
 {
   "langKeys": [
-    { "name": "Common", "key": 0, "tag" : "Common"},
-    { "name": "Orc", "key": 10, "tag" : "Common" },
-    { "name": "Goblin", "key": 100 },
-    { "name": "Draconic", "key": 20 },
-    { "name": "Elvish ", "key": 25 },
-    { "name": "Dwarvish ", "key": 30 },
-    { "name": "Underdark", "key": 35 },
-    { "name": "Abyssal", "key": 40 },
-    { "name": "Infernal", "key": 45 },
-    { "name": "Giant", "key": 50 },
-    { "name": "Gnomish", "key": 55 },
-    { "name": "Halfling", "key": 60 }
+    { "name": "Common", "key": 0, "tag": "[Common]" },
+    { "name": "Orc", "key": 10, "tag": "[K3zE8mSvoV]" },
+    { "name": "Goblin", "key": 100, "tag": "[jG0aqmb8zk]" },
+    { "name": "Draconic", "key": 20, "tag": "[OtVtX51OMc]" },
+    { "name": "Elvish ", "key": 25, "tag": "[jZrtzGvxfQ]" },
+    { "name": "Dwarvish ", "key": 30, "tag": "[FbFsBISNSg]" },
+    { "name": "Underdark", "key": 35, "tag": "[wkeih3M1pK]" },
+    { "name": "Abyssal", "key": 40, "tag": "[JsyvS1p5u2]" },
+    { "name": "Infernal", "key": 45, "tag": "[zQzfMjoefQ]" },
+    { "name": "Giant", "key": 50, "tag": "[GV3xomUU5t]" },
+    { "name": "Gnomish", "key": 55, "tag": "[MLPSuh1zwS]" },
+    { "name": "Halfling", "key": 60, "tag": "[kPA4Jk3Uil]" }
   ],
   "langMap": [
     "a",
