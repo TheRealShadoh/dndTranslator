@@ -103,6 +103,8 @@ function Set-TranslatedMessage {
         return msg console "Select a supported language"
     }
     $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
+    $cipherTag = $LanguageFile.langKeys.where( { $_.name -eq $language }).$tag
+
     if ($salt -ne 0) {
         $key = $key + $Salt #add salt
     }
@@ -119,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTextArray -join ""
+    $cipherText = $tag +($cipherTextArray -join "")
     return $cipherText
 
 }
@@ -140,6 +142,8 @@ function Get-TranslatedMessage {
         return msg console "Select a supported language"
     }
     $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
+    $plainTag = "["+($LanguageFile.langKeys.where( { $_.name -eq $language }).name)+"]"
+
     if ($salt -ne 0) {
         $key = $key + $Salt #remove salt
     }
@@ -156,7 +160,7 @@ function Get-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTextArray -join ""
+    $cipherText = $plainTag + ($cipherTextArray -join "")
     return $cipherText
 
 }
