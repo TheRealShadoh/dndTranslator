@@ -103,7 +103,7 @@ function Set-TranslatedMessage {
         return msg console "Select a supported language"
     }
     $key = $LanguageFile.langKeys.where( { $_.name -eq $language }).key
-    $cipherTag = $LanguageFile.langKeys.where( { $_.name -eq $language }).$tag
+    $cipherTag = $LanguageFile.langKeys.where( { $_.name -eq $language }).tag
 
     if ($salt -ne 0) {
         $key = $key + $Salt #add salt
@@ -121,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $tag +($cipherTextArray -join "")
+    $cipherText = $cipherTag  +($cipherTextArray -join "")
     return $cipherText
 
 }
@@ -137,7 +137,9 @@ function Get-TranslatedMessage {
         [int]$Salt = 0 #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
 
     )
-
+    $splitMessage = Get-CipherTag -Message $Message
+    $message = $splitMessage[1]
+    $ciphertag = $splitMessage[0]
     if ($LanguageFile.langKeys.name -notcontains $Language) {
         return msg console "Select a supported language"
     }
@@ -160,6 +162,54 @@ function Get-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
         $cipherTextArray += $cipherText
     }
+    $cipherText = $plainTag + ($cipherTextArray -join "")
+    return $cipherText
+
+}
+function Get-CipherTag {
+    param(
+        $Message
+    )
+    #json  data for tag length is 12, if this is not accurate this will not work
+    $cipherTag = $message[0..11]
+    $message = $Message.Trim($cipherTag)
+    $cipherTag = $cipherTag -join ""
+    return $cipherTag, $Message
+
+}
+function Get-TranslatedMessageAuto {
+    param (
+        [Parameter(Mandatory = $true)]
+        $LanguageFile,
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+        [Parameter(Mandatory = $false)]
+        [int]$Salt = 0 #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
+
+    )
+
+    $splitMessage = Get-CipherTag -Message $Message
+    $message = $splitMessage[1]
+    $ciphertag = $splitMessage[0]
+    $key = $LanguageFile.langKeys.where( { $_.tag -eq $cipherTag  }).key
+    if ($salt -ne 0) {
+        $key = $key + $Salt #remove salt
+    }
+
+
+    $plainText = $message
+    $plainTextArray = $plainText.tocharArray()
+    $cipherTextArray = @()
+    foreach ($text in $plainTextArray) {
+        if ($text -eq ' ') {
+            $cipherTextArray += $text
+            continue
+        }
+        $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
+        $cipherTextArray += $cipherText
+    }
+    $plainTag = "["+($LanguageFile.langKeys.where( { $_.tag -eq $cipherTag }).name)+"]"
+
     $cipherText = $plainTag + ($cipherTextArray -join "")
     return $cipherText
 
