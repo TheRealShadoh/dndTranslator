@@ -1,5 +1,14 @@
-﻿$tableLayoutPanel3_Paint = {
+﻿$RichTextBox2_Click = {
+		if($richtextbox2.Text -eq 'The person you are looking for may have come through this area, a few coins may help me remember.'){
+		$richtextbox2.Clear()
+	}
 
+}
+
+$RichTextBox4_Click = {
+	if($richtextbox4.Text -eq'Paste (Ctrl + v) into me!'){
+		$richtextbox4.Clear()
+	}
 }
 
 $button1_Click = {
@@ -36,7 +45,13 @@ $buttonSend_Click = {
 	[System.Windows.Forms.Clipboard]::SetText($translatedText)
 
 }
+$buttonReceive_Click = {
+	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap  -Message $richTextBox2.Text
+	$nl = [Environment]::NewLine
+	$richtextbox1.AppendText((  $nl + "[ RECEIVE ]" + $translatedText))
+	$richtextbox4.Clear()
 
+}
 $dndTranslatorPOSH_PlayerScreen_Load = {
 	# Load UI components
 	$global:data.langmap.langkeys.name | ForEach-Object { $comboBox1.Items.Add($_) } #Add each lanugage to the combo box
@@ -69,6 +84,5 @@ $global:data.Add('langmap', $langMap)
 
 #$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
-
 
 $dndTranslatorPOSH_PlayerScreen.ShowDialog()
