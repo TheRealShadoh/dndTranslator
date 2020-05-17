@@ -1,6 +1,9 @@
-﻿
-$buttonLoadConfig_Click = { #tab1 load config
-	#$openFileDialog1.Filter =    #Add filtering here for .json
+﻿$tableLayoutPanel3_Paint = {
+
+}
+
+$button1_Click = {
+		#$openFileDialog1.Filter =    #Add filtering here for .json
 	$playerFile = $openFileDialog1.showDialog()
 	$playerFile = $openFileDialog1.FileName
 	$players = Get-Content $playerFile -Raw | ConvertFrom-Json
@@ -25,23 +28,7 @@ $buttonLoadConfig_Click = { #tab1 load config
 	$TabControl1.SelectedTab = $TabPage2
 
 }
-$ButtonReceive_Click = {
-	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap -message $RichTextBox4.Text
-	$translatedLang = (Get-CipherTag -Message $translatedText)[0].toString()
-	$r = [regex] "\[([^\[]*)\]"
-	$match = $r.match($translatedLang)
-	$translatedLang = $match.groups[1].value
-	if($Global:data.players.charLanguages.Contains($translatedLang)){
-		$nl = [Environment]::NewLine
-		$richtextbox1.AppendText(( $nl + "[ RECEIVED ]" + $translatedText))
-	}
-	else {
-		$nl = [Environment]::NewLine
-		$richtextbox1.AppendText(( $nl + "[ RECEIVED ]" + " [ ??? ] " + $translatedText))
-	}
 
-
-}
 $buttonSend_Click = {
 	$translatedText = Set-TranslatedMessage -LanguageFile $global:data.langMap -Language $comboBox1.Text -Message $richTextBox2.Text
 	$nl = [Environment]::NewLine
