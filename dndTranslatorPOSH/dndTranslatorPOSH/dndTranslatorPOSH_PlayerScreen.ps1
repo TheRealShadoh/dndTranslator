@@ -84,8 +84,7 @@ $global:data.Add('langmap', $langMap)
 #$players = Get-childitem C:\git\dndTranslator\data\playerFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 # Setup NPC
 #$npcs = Get-childitem C:\git\dndTranslator\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
-
-#$global:data.Add('players',$players) # not used for player screen
+$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
 
 $dndTranslatorPOSH_PlayerScreen.ShowDialog()

@@ -26,7 +26,6 @@ $dndTranslatorPOSH_PlayerScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$label3 = $null
 [System.Windows.Forms.ComboBox]$comboBox1 = $null
 [System.Windows.Forms.TextBox]$textBox2 = $null
-[System.Windows.Forms.Button]$button2 = $null
 [System.Windows.Forms.OpenFileDialog]$openFileDialog1 = $null
 function InitializeComponent
 {
@@ -37,7 +36,6 @@ $tableLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel
 $flowLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.FlowLayoutPanel)
 $label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $tableLayoutPanel3 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
-$button2 = (New-Object -TypeName System.Windows.Forms.Button)
 $Label6 = (New-Object -TypeName System.Windows.Forms.Label)
 $label2 = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonReceive = (New-Object -TypeName System.Windows.Forms.Button)
@@ -87,7 +85,8 @@ $TabPage2.Text = [System.String]'Main'
 #splitContainer1
 #
 $splitContainer1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
-$splitContainer1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]19,[System.Int32]19))
+$splitContainer1.Dock = [System.Windows.Forms.DockStyle]::Fill
+$splitContainer1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]3))
 $splitContainer1.Name = [System.String]'splitContainer1'
 #
 #splitContainer1.Panel1
@@ -97,8 +96,8 @@ $splitContainer1.Panel1.Controls.Add($tableLayoutPanel1)
 #splitContainer1.Panel2
 #
 $splitContainer1.Panel2.Controls.Add($tableLayoutPanel3)
-$splitContainer1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]923,[System.Int32]467))
-$splitContainer1.SplitterDistance = [System.Int32]231
+$splitContainer1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]947,[System.Int32]497))
+$splitContainer1.SplitterDistance = [System.Int32]237
 $splitContainer1.TabIndex = [System.Int32]18
 #
 #tableLayoutPanel1
@@ -145,7 +144,6 @@ $tableLayoutPanel3.ColumnCount = [System.Int32]3
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
-$tableLayoutPanel3.Controls.Add($button2,[System.Int32]0,[System.Int32]16)
 $tableLayoutPanel3.Controls.Add($Label6,[System.Int32]0,[System.Int32]10)
 $tableLayoutPanel3.Controls.Add($label2,[System.Int32]0,[System.Int32]0)
 $tableLayoutPanel3.Controls.Add($ButtonReceive,[System.Int32]1,[System.Int32]8)
@@ -179,22 +177,9 @@ $tableLayoutPanel3.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowS
 $tableLayoutPanel3.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle))
 $tableLayoutPanel3.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle))
 $tableLayoutPanel3.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle))
-$tableLayoutPanel3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]686,[System.Int32]465))
+$tableLayoutPanel3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]704,[System.Int32]495))
 $tableLayoutPanel3.TabIndex = [System.Int32]27
 $tableLayoutPanel3.add_Paint($tableLayoutPanel3_Paint)
-#
-#button2
-#
-$button2.AutoSize = $true
-$button2.BackColor = [System.Drawing.Color]::PowderBlue
-$tableLayoutPanel3.SetColumnSpan($button2,[System.Int32]2)
-$button2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]438))
-$button2.Name = [System.String]'button2'
-$button2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]112,[System.Int32]31))
-$button2.TabIndex = [System.Int32]28
-$button2.Text = [System.String]'Receive'
-$button2.UseCompatibleTextRendering = $true
-$button2.UseVisualStyleBackColor = $false
 #
 #Label6
 #
@@ -339,10 +324,10 @@ $textBox2.Text = [System.String]'0'
 #
 #TabControl1
 #
+$TabControl1.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right)
 $TabControl1.Appearance = [System.Windows.Forms.TabAppearance]::FlatButtons
 $TabControl1.Controls.Add($TabPage1)
 $TabControl1.Controls.Add($TabPage2)
-$TabControl1.Dock = [System.Windows.Forms.DockStyle]::Fill
 $TabControl1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $TabControl1.Name = [System.String]'TabControl1'
 $TabControl1.SelectedIndex = [System.Int32]0
@@ -484,7 +469,6 @@ Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name RichTextBox1 -Valu
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name label3 -Value $label3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name comboBox1 -Value $comboBox1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name textBox2 -Value $textBox2 -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button2 -Value $button2 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name openFileDialog1 -Value $openFileDialog1 -MemberType NoteProperty
 }
 . InitializeComponent
