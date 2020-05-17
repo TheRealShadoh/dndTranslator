@@ -1,7 +1,6 @@
 [void][System.Reflection.Assembly]::Load('System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a')
 [void][System.Reflection.Assembly]::Load('System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089')
 $dndTranslatorPOSH_PlayerScreen = New-Object -TypeName System.Windows.Forms.Form
-[System.Windows.Forms.FlowLayoutPanel]$flowLayoutPanel1 = $null
 [System.Windows.Forms.Label]$label1 = $null
 [System.Windows.Forms.RichTextBox]$richTextBox1 = $null
 [System.Windows.Forms.Button]$button2 = $null
@@ -14,10 +13,12 @@ $dndTranslatorPOSH_PlayerScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$button3 = $null
 [System.Windows.Forms.RichTextBox]$richTextBox2 = $null
 [System.Windows.Forms.Button]$button4 = $null
+[System.Windows.Forms.Button]$button5 = $null
+[System.Windows.Forms.OpenFileDialog]$openFileDialog1 = $null
+[System.Windows.Forms.FlowLayoutPanel]$flowLayoutPanel1 = $null
 [System.Windows.Forms.Button]$button1 = $null
 function InitializeComponent
 {
-$flowLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.FlowLayoutPanel)
 $label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $richTextBox1 = (New-Object -TypeName System.Windows.Forms.RichTextBox)
 $button2 = (New-Object -TypeName System.Windows.Forms.Button)
@@ -30,15 +31,11 @@ $label4 = (New-Object -TypeName System.Windows.Forms.Label)
 $textBox2 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $button3 = (New-Object -TypeName System.Windows.Forms.Button)
 $richTextBox2 = (New-Object -TypeName System.Windows.Forms.RichTextBox)
+$button5 = (New-Object -TypeName System.Windows.Forms.Button)
+$openFileDialog1 = (New-Object -TypeName System.Windows.Forms.OpenFileDialog)
+$flowLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.FlowLayoutPanel)
 $panel1.SuspendLayout()
 $dndTranslatorPOSH_PlayerScreen.SuspendLayout()
-#
-#flowLayoutPanel1
-#
-$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]13,[System.Int32]13))
-$flowLayoutPanel1.Name = [System.String]'flowLayoutPanel1'
-$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]222,[System.Int32]522))
-$flowLayoutPanel1.TabIndex = [System.Int32]0
 #
 #label1
 #
@@ -137,6 +134,7 @@ $textBox2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @(
 $textBox2.Name = [System.String]'textBox2'
 $textBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]86,[System.Int32]26))
 $textBox2.TabIndex = [System.Int32]9
+$textBox2.Text = [System.String]'0'
 #
 #button3
 #
@@ -153,20 +151,43 @@ $richTextBox2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentLis
 $richTextBox2.Name = [System.String]'richTextBox2'
 $richTextBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]598,[System.Int32]219))
 $richTextBox2.TabIndex = [System.Int32]10
-$richTextBox2.Text = [System.String]''
+$richTextBox2.Text = [System.String]'fgt'
+#
+#button5
+#
+$button5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]541))
+$button5.Name = [System.String]'button5'
+$button5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]170,[System.Int32]27))
+$button5.TabIndex = [System.Int32]9
+$button5.Text = [System.String]'Load Player Config'
+$button5.UseVisualStyleBackColor = $true
+$button5.add_Click($button5_Click)
+#
+#openFileDialog1
+#
+$openFileDialog1.FileName = [System.String]'openFileDialog1'
+#
+#flowLayoutPanel1
+#
+$flowLayoutPanel1.FlowDirection = [System.Windows.Forms.FlowDirection]::TopDown
+$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]4))
+$flowLayoutPanel1.Name = [System.String]'flowLayoutPanel1'
+$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]238,[System.Int32]531))
+$flowLayoutPanel1.TabIndex = [System.Int32]10
 #
 #dndTranslatorPOSH_PlayerScreen
 #
 $dndTranslatorPOSH_PlayerScreen.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1083,[System.Int32]580))
-$dndTranslatorPOSH_PlayerScreen.Controls.Add($panel1)
 $dndTranslatorPOSH_PlayerScreen.Controls.Add($flowLayoutPanel1)
+$dndTranslatorPOSH_PlayerScreen.Controls.Add($button5)
+$dndTranslatorPOSH_PlayerScreen.Controls.Add($panel1)
 $dndTranslatorPOSH_PlayerScreen.Name = [System.String]'dndTranslatorPOSH_PlayerScreen'
 $dndTranslatorPOSH_PlayerScreen.Text = [System.String]'Player Language Screen'
+$dndTranslatorPOSH_PlayerScreen.add_Load($dndTranslatorPOSH_PlayerScreen_Load)
 $panel1.ResumeLayout($false)
 $panel1.PerformLayout()
 $dndTranslatorPOSH_PlayerScreen.ResumeLayout($false)
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name base -Value $base -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name flowLayoutPanel1 -Value $flowLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name label1 -Value $label1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name richTextBox1 -Value $richTextBox1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button2 -Value $button2 -MemberType NoteProperty
@@ -179,6 +200,9 @@ Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name textBox2 -Value $t
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button3 -Value $button3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name richTextBox2 -Value $richTextBox2 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button4 -Value $button4 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button5 -Value $button5 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name openFileDialog1 -Value $openFileDialog1 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name flowLayoutPanel1 -Value $flowLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name button1 -Value $button1 -MemberType NoteProperty
 }
 . InitializeComponent
