@@ -281,6 +281,7 @@ $RichTextBox1.ReadOnly = $true
 $RichTextBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]658,[System.Int32]140))
 $RichTextBox1.TabIndex = [System.Int32]24
 $RichTextBox1.Text = [System.String]''
+$RichTextBox1.add_TextChanged($RichTextBox1_TextChanged)
 #
 #label3
 #

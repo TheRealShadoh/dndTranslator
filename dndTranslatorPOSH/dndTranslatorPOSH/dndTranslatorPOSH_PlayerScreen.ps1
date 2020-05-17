@@ -4,7 +4,10 @@
 	}
 
 }
+$RichTextBox1_TextChanged = { # auto scroll to bottom on chat log
+	$RichTextBox1.ScrollToCaret()
 
+}
 $RichTextBox4_Click = {
 	if($richtextbox4.Text -eq'Paste (Ctrl + v) into me!'){
 		$richtextbox4.Clear()
@@ -46,7 +49,7 @@ $buttonSend_Click = {
 
 }
 $buttonReceive_Click = {
-	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap  -Message $richTextBox2.Text
+	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap  -Message $richTextBox4.Text
 	$nl = [Environment]::NewLine
 	$richtextbox1.AppendText((  $nl + "[ RECEIVE ]" + $translatedText))
 	$richtextbox4.Clear()

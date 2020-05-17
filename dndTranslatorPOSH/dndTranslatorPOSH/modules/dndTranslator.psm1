@@ -121,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTag  + ($cipherTextArray -join "")
+    $cipherText = $cipherTag + " "  + ($cipherTextArray -join "")
     return $cipherText
 
 }
