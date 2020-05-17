@@ -18,12 +18,10 @@ $button1_Click = {
 	#$openFileDialog1.Filter =    #Add filtering here for .json
 $playerFile = $openFileDialog1.showDialog()
 $playerFile = $openFileDialog1.FileName
-$players = Get-Content $playerFile -Raw | ConvertFrom-Json
-$global:data.Add('players', $players)
+$players =  Get-Content $playerFile -Raw | ConvertFrom-Json
 
 
 #update UI elements
-#$flowLayoutPanel1.Controls | foreach-object {$flowLayoutPanel1.Controls.Remove($_.name)}
 New-PlayerInfo -PlayersInfo $global:data.players -TargetPanel $flowLayoutPanel1
 
 $groupBoxCharLanguages = (New-Object -TypeName System.Windows.Forms.GroupBox)
@@ -84,7 +82,7 @@ $global:data.Add('langmap', $langMap)
 #$players = Get-childitem C:\git\dndTranslator\data\playerFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 # Setup NPC
 #$npcs = Get-childitem C:\git\dndTranslator\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
-#$global:data.Add('players',$players) # not used for player screen
+$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
 
 $dndTranslatorPOSH_DMScreen.ShowDialog()
