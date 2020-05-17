@@ -426,7 +426,7 @@ $dndTranslatorPOSH_DMScreen.ClientSize = (New-Object -TypeName System.Drawing.Si
 $dndTranslatorPOSH_DMScreen.Controls.Add($TabControl1)
 $dndTranslatorPOSH_DMScreen.Name = [System.String]'dndTranslatorPOSH_DMScreen'
 $dndTranslatorPOSH_DMScreen.ShowIcon = $false
-$dndTranslatorPOSH_DMScreen.Text = [System.String]'Player Language Screen'
+$dndTranslatorPOSH_DMScreen.Text = [System.String]'Dungeon Master Language Screen'
 $dndTranslatorPOSH_DMScreen.TopMost = $true
 $dndTranslatorPOSH_DMScreen.add_Load($dndTranslatorPOSH_DMScreen_Load)
 $TabPage2.ResumeLayout($false)
