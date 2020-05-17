@@ -1,3 +1,4 @@
+
 $buttonLoadConfig_Click = { #tab1 load config
 	#$openFileDialog1.Filter =    #Add filtering here for .json
 	$playerFile = $openFileDialog1.showDialog()
@@ -24,31 +25,30 @@ $buttonLoadConfig_Click = { #tab1 load config
 	$TabControl1.SelectedTab = $TabPage2
 
 }
-$buttonCopy_Click = {
-	[System.Windows.Forms.Clipboard]::SetText($richTextBox2.Text)
+$ButtonReceive_Click = {
+	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap -message $RichTextBox4.Text
+	$translatedLang = (Get-CipherTag -Message $translatedText)[0].toString()
+	$r = [regex] "\[([^\[]*)\]"
+	$match = $r.match($translatedLang)
+	$translatedLang = $match.groups[1].value
+	if($Global:data.players.charLanguages.Contains($translatedLang)){
+		$nl = [Environment]::NewLine
+		$richtextbox1.AppendText(( $nl + "[ RECEIVED ]" + $translatedText))
+	}
+	else {
+		$nl = [Environment]::NewLine
+		$richtextbox1.AppendText(( $nl + "[ RECEIVED ]" + " [ ??? ] " + $translatedText))
+	}
+
 
 }
 $buttonSend_Click = {
-	$richtextbox4.text = Get-TranslatedMessage -key $textbox2.text -message $richtextbox3.text
-	$richtextbox1.text = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap -message $richtextbox1.text
+	$translatedText = Set-TranslatedMessage -LanguageFile $global:data.langMap -Language $comboBox1.Text -Message $richTextBox2.Text
+	$nl = [Environment]::NewLine
+	$richtextbox1.AppendText((  $nl + "[ SEND ]" + $translatedText))
+	[System.Windows.Forms.Clipboard]::SetText($translatedText)
 
-
 }
-$Label3_Click = {
-}
-$RichTextBox1_TextChanged = {
-}
-$RichTextBox3_TextChanged = {
-}
-$label1_Click = {
-}
-$Label2_Click = {
-}
-$GroupBox1_Enter = {
-}
-$label4_Click = {
-}
-
 
 $dndTranslatorPOSH_PlayerScreen_Load = {
 	# Load UI components
