@@ -87,4 +87,4 @@ $global:data.Add('langmap', $langMap)
 #$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
 
-$dndTranslatorPOSH_PlayerScreen.ShowDialog()
+$dndTranslatorPOSH_DMScreen.ShowDialog()
