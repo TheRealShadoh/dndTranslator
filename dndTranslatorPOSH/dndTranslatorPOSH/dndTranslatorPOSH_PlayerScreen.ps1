@@ -1,4 +1,4 @@
-
+﻿
 $buttonLoadConfig_Click = { #tab1 load config
 	#$openFileDialog1.Filter =    #Add filtering here for .json
 	$playerFile = $openFileDialog1.showDialog()
@@ -57,13 +57,21 @@ $dndTranslatorPOSH_PlayerScreen_Load = {
 	#New-PlayerInfo -Initialize $true -TargetPanel $flowLayoutPanel1 #build out character info an blanks
 }
 
-. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
-Import-Module  '.\dndTranslatorPOSH\dndTranslatorPOSH\modules\dndTranslator.psm1' -Force -Verbose
-Import-Module  '.\dndTranslatorPOSH\dndTranslatorPOSH\modules\uiFunctions.psm1' -Force -Verbose
+
+#region Pathing
+$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_PlayerScreen_Load.file
+$dataDir =  Split-Path -Parent $workingDir
+$dataDir =  Split-Path -Parent $dataDir
+#endregion Pathing
+
+
+. (Join-Path $workingDir 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
+Import-Module  "$workingDir\modules\dndTranslator.psm1"-Force -Verbose
+Import-Module  "$workingDir\modules\uiFunctions.psm1" -Force -Verbose
 $global:data = @{ } #share data between scopes
 
 # Language import
-$langMap = Get-Content '.\data\languages\default.json' -Raw
+$langMap = Get-Content "$dataDir\data\languages\default.json" -Raw
 $langMap = $langMap | ConvertFrom-Json
 $global:data.Add('langmap', $langMap)
 

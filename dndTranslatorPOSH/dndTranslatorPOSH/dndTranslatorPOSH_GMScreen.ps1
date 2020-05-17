@@ -20,3 +20,8 @@ $dndTranslatorPOSH.ShowDialog()
 
 
 
+#region Pathing
+$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_PlayerScreen_Load.file
+$dataDir =  Split-Path -Parent $workingDir
+$dataDir =  Split-Path -Parent $dataDir
+#endregion Pathing

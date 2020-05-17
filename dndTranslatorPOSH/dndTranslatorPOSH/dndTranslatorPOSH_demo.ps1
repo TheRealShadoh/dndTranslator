@@ -1,15 +1,21 @@
 # init
-Import-Module .\dndTranslatorPOSH\dndTranslatorPOSH\modules\dndTranslator.psm1 -Force
+#region Pathing
+$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_PlayerScreen_Load.file
+$dataDir =  Split-Path -Parent $workingDir
+$dataDir =  Split-Path -Parent $dataDir
+#endregion Pathing
+
+Import-Module "$PSScriptRoot\modules\dndTranslator.psm1" -verbose -Force
 $nl = [Environment]::NewLine
 # Setup Languages
 $langMap = Get-Content '.\data\languages\default.json' -Raw
 $langMap = $langMap | ConvertFrom-Json
 
 # Setup Players
-$players = Get-childitem .\data\playerFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
+$players = Get-childitem "$dataDir\data\playerFiles\"| ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 
 # Setup NPC
-$npcs = Get-childitem .\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
+$npcs = Get-childitem "$dataDir\data\npcFiles\" | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 
 # Conversation bits
 # (speaker)(spearker number) (message number) (language)
