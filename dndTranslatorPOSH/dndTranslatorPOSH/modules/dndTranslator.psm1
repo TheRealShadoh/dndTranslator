@@ -226,6 +226,16 @@ function Get-MappedNumber {
     }
 }
 
+function Test-IfKnownLanguage {
+    param (
+        [Parameter(Mandatory = $true)]
+        $Letter,
+        [Parameter(Mandatory = $true)]
+        $Language
+
+    )
+
+}
 
 <# DEPRECATED
 function Get-TranslatedMessage {
