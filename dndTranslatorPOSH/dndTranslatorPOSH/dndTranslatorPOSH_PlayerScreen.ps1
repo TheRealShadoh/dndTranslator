@@ -38,7 +38,7 @@ $buttonSend_Click = {
 
 }
 $buttonReceive_Click = {
-	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap  -Message $richTextBox4.Text
+	$translatedText = Get-TranslatedMessageAuto -LanguageFile $global:data.langMap  -Message $richTextBox4.Text -isDM $false -KnownLanguages $global:data.players.charLanguages
 	$nl = [Environment]::NewLine
 	$richtextbox1.AppendText((  $nl + "[ RECEIVE ]" + $translatedText))
 	$richtextbox4.Clear()

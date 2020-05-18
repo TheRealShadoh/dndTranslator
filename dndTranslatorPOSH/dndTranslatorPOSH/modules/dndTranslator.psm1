@@ -121,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTag + " "  + ($cipherTextArray -join "")
+    $cipherText = $cipherTag + " " + ($cipherTextArray -join "")
     return $cipherText
 
 }
@@ -143,35 +143,73 @@ function Get-TranslatedMessageAuto {
         [Parameter(Mandatory = $true)]
         [string]$Message,
         [Parameter(Mandatory = $false)]
-        [int]$Salt = 0 #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
-
+        $KnownLanguages,
+        [Parameter(Mandatory = $false)]
+        [int]$Salt = 0, #Shift key on an individual basis to keep the language key secret from players who may be looking into the json
+        [Parameter(Mandatory = $true)]
+        [string]$isDM
     )
+    switch ($isDM) {
+        $true {
+            $splitMessage = Get-CipherTag -Message $Message
+            $message = $splitMessage[1]
+            $ciphertag = $splitMessage[0]
+            $key = $LanguageFile.langKeys.where( { $_.tag -eq $cipherTag }).key
+            if ($salt -ne 0) {
+                $key = $key + $Salt #remove salt
+            }
 
-    $splitMessage = Get-CipherTag -Message $Message
-    $message = $splitMessage[1]
-    $ciphertag = $splitMessage[0]
-    $key = $LanguageFile.langKeys.where( { $_.tag -eq $cipherTag  }).key
-    if ($salt -ne 0) {
-        $key = $key + $Salt #remove salt
-    }
 
+            $plainText = $message
+            $plainTextArray = $plainText.tocharArray()
+            $cipherTextArray = @()
+            foreach ($text in $plainTextArray) {
+                if ($text -eq ' ') {
+                    $cipherTextArray += $text
+                    continue
+                }
+                $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
+                $cipherTextArray += $cipherText
+            }
+            $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
 
-    $plainText = $message
-    $plainTextArray = $plainText.tocharArray()
-    $cipherTextArray = @()
-    foreach ($text in $plainTextArray) {
-        if ($text -eq ' ') {
-            $cipherTextArray += $text
-            continue
+            $cipherText = $plainTag + ($cipherTextArray -join "")
+            return Write-Output $cipherText
         }
-        $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
-        $cipherTextArray += $cipherText
+        $false {
+            $splitMessage = Get-CipherTag -Message $Message
+            $message = $splitMessage[1]
+            $ciphertag = $splitMessage[0]
+            $key = $LanguageFile.langKeys.where( { $_.tag -eq $cipherTag }).key
+            if ($salt -ne 0) {
+                $key = $key + $Salt #remove salt
+            }
+
+
+            $plainText = $message
+            $plainTextArray = $plainText.tocharArray()
+            $cipherTextArray = @()
+            foreach ($text in $plainTextArray) {
+                if ($text -eq ' ') {
+                    $cipherTextArray += $text
+                    continue
+                }
+                $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Decode'
+                $cipherTextArray += $cipherText
+            }
+            $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
+
+            if($KnownLanguages.Contains($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name)){ #if you know the language
+                $cipherText = $plainTag + ($cipherTextArray -join "")
+                return Write-Output $cipherText
+            }
+            else{ #you don't know the language
+                $cipherText = "[UNKNOWN]:: " + $plainText
+                return Write-Output $cipherText
+            }
+
+        }
     }
-    $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
-
-    $cipherText = $plainTag + ($cipherTextArray -join "")
-    return Write-Output $cipherText
-
 }
 
 function Get-MappedNumber {
@@ -200,7 +238,7 @@ function Get-MappedNumber {
                         $overage = $shiftedMappedNumber - $LanguageFile.langMap.count   #How much did the shift exceed the numerical range
                     }  while ($overage -gt 0)
                 }
-                if($overage -eq 0){
+                if ($overage -eq 0) {
                     $shiftedMappedNumber = $overage
                 }
             }
