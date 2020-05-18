@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\dndTranslatorPOSH",
-    "\\dndTranslatorPOSH\\dndTranslatorPOSH"
+    "\\powershell",
+    "\\powershell\\dndTranslator"
   ],
-  "SelectedNode": "\\dndTranslatorPOSH\\dndTranslatorPOSH\\dndTranslatorPOSH.pssproj",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
