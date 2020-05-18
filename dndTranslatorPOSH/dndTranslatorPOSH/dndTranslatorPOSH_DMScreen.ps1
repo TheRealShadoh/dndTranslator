@@ -72,8 +72,8 @@ $dataDir =  Split-Path -Parent $dataDir
 
 
 . (Join-Path $workingDir 'dndTranslatorPOSH_DMScreen.designer.ps1')
-Import-Module  "$workingDir\modules\dndTranslator.psm1"-Force -Verbose
-Import-Module  "$workingDir\modules\uiFunctions.psm1" -Force -Verbose
+Import-Module  "$workingDir\dndTranslatorPOSH-modules\dndTranslatorPOSH-modules.psd1"-Force -Verbose
+
 $global:data = @{ } #share data between scopes
 
 # Language import
