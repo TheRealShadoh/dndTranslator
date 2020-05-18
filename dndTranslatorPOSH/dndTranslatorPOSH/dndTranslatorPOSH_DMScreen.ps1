@@ -56,7 +56,7 @@ $richtextbox1.AppendText((  $nl + "[ RECEIVE ]" + $translatedText))
 $richtextbox4.Clear()
 
 }
-$dndTranslatorPOSH_PlayerScreen_Load = {
+$dndTranslatorPOSH_DMScreen_Load = {
 # Load UI components
 $global:data.langmap.langkeys.name | ForEach-Object { $comboBox1.Items.Add($_) } #Add each lanugage to the combo box
 $comboBox1.Text = $comboBox1.Items[0] #Sets default value to index 0
@@ -65,7 +65,7 @@ $comboBox1.Text = $comboBox1.Items[0] #Sets default value to index 0
 
 
 #region Pathing
-$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_PlayerScreen_Load.file
+$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_DMScreen_Load.file
 $dataDir =  Split-Path -Parent $workingDir
 $dataDir =  Split-Path -Parent $dataDir
 #endregion Pathing
