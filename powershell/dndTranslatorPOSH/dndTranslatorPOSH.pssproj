@@ -26,18 +26,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Resources.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="dndTranslatorPOSH.designer.ps1">
-      <SubType>Code</SubType>
-      <DependentUpon>dndTranslatorPOSH.ps1</DependentUpon>
-    </Compile>
-    <Compile Include="dndTranslatorPOSH.ps1">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
   <Import Project="$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets" Condition="Exists('$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets')" />
