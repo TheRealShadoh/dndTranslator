@@ -1,4 +1,3 @@
-.vs
-powershell\.vs
-powershell\bin
-powershell\obj
+/.vs
+/powershell/dndTranslator/bin/Debug
+/powershell/dndTranslator/obj/Debug

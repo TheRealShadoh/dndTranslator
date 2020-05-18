@@ -73,7 +73,7 @@ $dataDir =  Split-Path -Parent $dataDir
 
 . (Join-Path $workingDir 'dndTranslatorPOSH_DMScreen.designer.ps1')
 Import-Module  "$workingDir\dndTranslatorPOSH\dndTranslatorPOSH.psd1"-Force -Verbose
-
+. (Join-Path $workingDir "$workingDir\dndTranslatorPOSH\dndTranslatorPOSH.psd1")
 
 
 $global:data = @{ } #share data between scopes
