@@ -59,8 +59,13 @@ $dataDir =  Split-Path -Parent $dataDir
 #endregion Pathing
 
 
-. (Join-Path $workingDir 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
+<# DEBUG PATHS
+. (Join-Path $workingDir 'dndTranslatorPOSH_DMScreen.designer.ps1')
 Import-Module  "$workingDir\dndTranslatorPOSH-modules\dndTranslatorPOSH-modules.psd1"-Force -Verbose
+#>
+. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_DMScreen.designer.ps1')
+Import-Module  dndTranslatorPOSH-modules.psd1 -Force -Verbose
+
 
 $global:data = @{ } #share data between scopes
 

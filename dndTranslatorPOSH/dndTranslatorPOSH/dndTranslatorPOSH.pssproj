@@ -7,6 +7,12 @@
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
     <Name>dndTranslatorPOSH</Name>
+    <PackageAsExecutable>True</PackageAsExecutable>
+    <PackageEntryPoint>dndTranslatorPOSH_DMScreen.ps1</PackageEntryPoint>
+    <Bundle>True</Bundle>
+    <DotNetVersion>v4.7.2</DotNetVersion>
+    <PackageModules>True</PackageModules>
+    <PackageType>Console</PackageType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="modules\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="dndTranslatorPOSH_DMScreen.resx" />
     <Content Include="Resources.resx" />
   </ItemGroup>
@@ -47,8 +50,6 @@
     <Compile Include="dndTranslatorPOSH_PlayerScreen.ps1">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modules\dndTranslator.psm1" />
-    <Compile Include="modules\uiFunctions.psm1" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

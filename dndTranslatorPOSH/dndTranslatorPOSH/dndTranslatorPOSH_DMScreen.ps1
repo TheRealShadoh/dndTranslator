@@ -63,7 +63,7 @@ $comboBox1.Text = $comboBox1.Items[0] #Sets default value to index 0
 #New-PlayerInfo -Initialize $true -TargetPanel $flowLayoutPanel1 #build out character info an blanks
 }
 
-
+<# DEBUG PATHS
 #region Pathing
 $workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_DMScreen_Load.file
 $dataDir =  Split-Path -Parent $workingDir
@@ -73,6 +73,17 @@ $dataDir =  Split-Path -Parent $dataDir
 
 . (Join-Path $workingDir 'dndTranslatorPOSH_DMScreen.designer.ps1')
 Import-Module  "$workingDir\dndTranslatorPOSH-modules\dndTranslatorPOSH-modules.psd1"-Force -Verbose
+#>
+#region Pathing
+$workingDir = Split-Path $PSScriptRoot #$dndTranslatorPOSH_DMScreen_Load.file
+$dataDir =  Split-Path -Parent $workingDir
+$dataDir =  Split-Path -Parent $dataDir
+$dataDir =  Split-Path -Parent $dataDir
+
+#endregion Pathing
+
+. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_DMScreen.designer.ps1')
+Import-Module  dndTranslatorPOSH-modules.psd1 -Force -Verbose
 
 $global:data = @{ } #share data between scopes
 
