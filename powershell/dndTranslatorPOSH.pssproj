@@ -36,8 +36,7 @@
     <Content Include="Resources.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dndTranslator.psm1" />
-    <Compile Include="dndTranslatorPOSH.psd1" />
+    <Compile Include="DMScreen.ps1" />
     <Compile Include="dndTranslatorPOSH_DMScreen.designer.ps1">
       <SubType>Code</SubType>
       <DependentUpon>dndTranslatorPOSH_DMScreen.ps1</DependentUpon>
@@ -52,7 +51,6 @@
     <Compile Include="dndTranslatorPOSH_PlayerScreen.ps1">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="uiFunctions.psm1" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
