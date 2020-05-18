@@ -1,4 +1,4 @@
-$RichTextBox2_Click = {
+﻿$RichTextBox2_Click = {
 	if($richtextbox2.Text -eq 'The person you are looking for may have come through this area, a few coins may help me remember.'){
 	$richtextbox2.Clear()
 }

@@ -32,12 +32,16 @@
     <Content Include="Resources.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dndTranslatorPOSH_DMScreen.designer.ps1">
+      <SubType>Code</SubType>
+      <DependentUpon>dndTranslatorPOSH_DMScreen.ps1</DependentUpon>
+    </Compile>
+    <Compile Include="dndTranslatorPOSH_DMScreen.ps1">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dndTranslatorPOSH_GMScreen.designer.ps1">
       <SubType>Code</SubType>
       <DependentUpon>dndTranslatorPOSH_GMScreen.ps1</DependentUpon>
-    </Compile>
-    <Compile Include="dndTranslatorPOSH_GMScreen.ps1">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="dndTranslatorPOSH_PlayerScreen.designer.ps1">
       <SubType>Code</SubType>
@@ -46,7 +50,6 @@
     <Compile Include="dndTranslatorPOSH_PlayerScreen.ps1">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dndTranslator_POSH.ps1" />
     <Compile Include="modules\dndTranslator.psm1" />
     <Compile Include="modules\uiFunctions.psm1" />
   </ItemGroup>
@@ -62,6 +65,13 @@
       <Name>System.Drawing</Name>
       <AssemblyName>System.Drawing.dll</AssemblyName>
       <HintPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Drawing</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <Name>System.Windows.Forms</Name>
