@@ -2,3 +2,5 @@
 /powershell/dndTranslator/bin/Debug
 /powershell/dndTranslator/obj/Debug
 /powershell/dndTranslator/.vs
+/out
+/package.psd1

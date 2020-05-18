@@ -51,18 +51,14 @@ $dndTranslatorPOSH_PlayerScreen_Load = {
 	#New-PlayerInfo -Initialize $true -TargetPanel $flowLayoutPanel1 #build out character info an blanks
 }
 
-
 #region Pathing
 $workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_DMScreen_Load.file
-$dataDir =  Split-Path -Parent $workingDir
-$dataDir =  Split-Path -Parent $dataDir
+$dataDir = Split-Path -Parent $workingDir
+$dataDir = Split-Path -Parent $dataDir
 #endregion Pathing
 
 
-. (Join-Path $workingDir 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
-Import-Module  "$workingDir\dndTranslatorPOSH\dndTranslatorPOSH.psd1"-Force -Verbose
-
-
+Import-Module  "$psscriptroot\dndTranslatorPOSH\dndTranslatorPOSH.psd1" -Force -Verbose
 
 $global:data = @{ } #share data between scopes
 
@@ -77,5 +73,7 @@ $global:data.Add('langmap', $langMap)
 #$npcs = Get-childitem C:\git\dndTranslator\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 #$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
+
+. (Join-Path $workingDir 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
 
 $dndTranslatorPOSH_PlayerScreen.ShowDialog()
