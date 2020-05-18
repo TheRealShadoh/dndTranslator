@@ -26,17 +26,6 @@ $button1_Click = {
 	#$flowLayoutPanel1.Controls | foreach-object {$flowLayoutPanel1.Controls.Remove($_.name)}
 	New-PlayerInfo -PlayersInfo $global:data.players -TargetPanel $flowLayoutPanel1
 
-	$groupBoxCharLanguages = (New-Object -TypeName System.Windows.Forms.GroupBox)
-	$groupBoxCharLanguages.Controls.Add($labelLanguage)
-	$groupBoxCharLanguages.AutoSize = $false
-	$groupBoxCharLanguages.Name = [System.String]"groupBoxCharLanguages"
-	$groupBoxCharLanguages.Text = [System.String]"Known Languages"
-	$groupBoxCharLanguages.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]200, [System.Int32]200))
-	$groupBoxCharLanguages.UseCompatibleTextRendering = $true
-	New-PlayerLanguages -PlayerLanguages $global:data.players.charLanguages -TargetPanel $groupBoxCharLanguages
-
-	$flowLayoutPanel1.Controls.Add($groupBoxCharLanguages)
-
 	$TabControl1.SelectedTab = $TabPage2
 
 }

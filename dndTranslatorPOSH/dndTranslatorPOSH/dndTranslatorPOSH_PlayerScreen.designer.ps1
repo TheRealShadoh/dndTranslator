@@ -6,14 +6,12 @@ $dndTranslatorPOSH_PlayerScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$buttonSend = $null
 [System.Windows.Forms.Label]$Label6 = $null
 [System.Windows.Forms.Button]$ButtonReceive = $null
-[System.Windows.Forms.Label]$label1 = $null
 [System.Windows.Forms.Label]$label4 = $null
 [System.Windows.Forms.TabControl]$TabControl1 = $null
 [System.Windows.Forms.TabPage]$TabPage1 = $null
 [System.Windows.Forms.RichTextBox]$RichTextBox3 = $null
 [System.Windows.Forms.Button]$buttonLoadConfig = $null
 [System.Windows.Forms.SplitContainer]$splitContainer1 = $null
-[System.Windows.Forms.TableLayoutPanel]$tableLayoutPanel1 = $null
 [System.Windows.Forms.FlowLayoutPanel]$flowLayoutPanel1 = $null
 [System.Windows.Forms.TableLayoutPanel]$tableLayoutPanel3 = $null
 [System.Windows.Forms.RichTextBox]$RichTextBox4 = $null
@@ -32,9 +30,7 @@ function InitializeComponent
 $openFileDialog1 = (New-Object -TypeName System.Windows.Forms.OpenFileDialog)
 $TabPage2 = (New-Object -TypeName System.Windows.Forms.TabPage)
 $splitContainer1 = (New-Object -TypeName System.Windows.Forms.SplitContainer)
-$tableLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
 $flowLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.FlowLayoutPanel)
-$label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $tableLayoutPanel3 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
 $Label6 = (New-Object -TypeName System.Windows.Forms.Label)
 $label2 = (New-Object -TypeName System.Windows.Forms.Label)
@@ -60,7 +56,6 @@ $TabPage2.SuspendLayout()
 $splitContainer1.Panel1.SuspendLayout()
 $splitContainer1.Panel2.SuspendLayout()
 $splitContainer1.SuspendLayout()
-$tableLayoutPanel1.SuspendLayout()
 $tableLayoutPanel3.SuspendLayout()
 $TabControl1.SuspendLayout()
 $TabPage1.SuspendLayout()
@@ -91,7 +86,7 @@ $splitContainer1.Name = [System.String]'splitContainer1'
 #
 #splitContainer1.Panel1
 #
-$splitContainer1.Panel1.Controls.Add($tableLayoutPanel1)
+$splitContainer1.Panel1.Controls.Add($flowLayoutPanel1)
 #
 #splitContainer1.Panel2
 #
@@ -100,42 +95,16 @@ $splitContainer1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList 
 $splitContainer1.SplitterDistance = [System.Int32]237
 $splitContainer1.TabIndex = [System.Int32]18
 #
-#tableLayoutPanel1
-#
-$tableLayoutPanel1.ColumnCount = [System.Int32]1
-$tableLayoutPanel1.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]50)))
-$tableLayoutPanel1.Controls.Add($flowLayoutPanel1,[System.Int32]0,[System.Int32]1)
-$tableLayoutPanel1.Controls.Add($label1,[System.Int32]0,[System.Int32]0)
-$tableLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]7,[System.Int32]3))
-$tableLayoutPanel1.Name = [System.String]'tableLayoutPanel1'
-$tableLayoutPanel1.RowCount = [System.Int32]2
-$tableLayoutPanel1.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]10.46154)))
-$tableLayoutPanel1.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]89.53846)))
-$tableLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]220,[System.Int32]325))
-$tableLayoutPanel1.TabIndex = [System.Int32]0
-#
 #flowLayoutPanel1
 #
 $flowLayoutPanel1.AutoScroll = $true
 $flowLayoutPanel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $flowLayoutPanel1.Dock = [System.Windows.Forms.DockStyle]::Fill
 $flowLayoutPanel1.FlowDirection = [System.Windows.Forms.FlowDirection]::TopDown
-$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]37))
+$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $flowLayoutPanel1.Name = [System.String]'flowLayoutPanel1'
-$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]214,[System.Int32]285))
+$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]495))
 $flowLayoutPanel1.TabIndex = [System.Int32]24
-#
-#label1
-#
-$label1.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left)
-$label1.AutoSize = $true
-$label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]10.125,([System.Drawing.FontStyle][System.Drawing.FontStyle]::Bold -bor [System.Drawing.FontStyle]::Underline),[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]4))
-$label1.Name = [System.String]'label1'
-$label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]124,[System.Int32]30))
-$label1.TabIndex = [System.Int32]23
-$label1.Text = [System.String]'Player Info'
-$label1.UseCompatibleTextRendering = $true
 #
 #tableLayoutPanel3
 #
@@ -434,8 +403,6 @@ $splitContainer1.Panel1.ResumeLayout($false)
 $splitContainer1.Panel2.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$splitContainer1).EndInit()
 $splitContainer1.ResumeLayout($false)
-$tableLayoutPanel1.ResumeLayout($false)
-$tableLayoutPanel1.PerformLayout()
 $tableLayoutPanel3.ResumeLayout($false)
 $tableLayoutPanel3.PerformLayout()
 $TabControl1.ResumeLayout($false)
@@ -449,14 +416,12 @@ Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name label2 -Value $lab
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name buttonSend -Value $buttonSend -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name Label6 -Value $Label6 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name ButtonReceive -Value $ButtonReceive -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name label1 -Value $label1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name label4 -Value $label4 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name TabControl1 -Value $TabControl1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name TabPage1 -Value $TabPage1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name RichTextBox3 -Value $RichTextBox3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name buttonLoadConfig -Value $buttonLoadConfig -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name splitContainer1 -Value $splitContainer1 -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name tableLayoutPanel1 -Value $tableLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name flowLayoutPanel1 -Value $flowLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name tableLayoutPanel3 -Value $tableLayoutPanel3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_PlayerScreen -Name RichTextBox4 -Value $RichTextBox4 -MemberType NoteProperty

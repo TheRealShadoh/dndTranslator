@@ -6,14 +6,12 @@ $dndTranslatorPOSH_DMScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$buttonSend = $null
 [System.Windows.Forms.Label]$Label6 = $null
 [System.Windows.Forms.Button]$ButtonReceive = $null
-[System.Windows.Forms.Label]$label1 = $null
 [System.Windows.Forms.Label]$label4 = $null
 [System.Windows.Forms.TabControl]$TabControl1 = $null
 [System.Windows.Forms.TabPage]$TabPage1 = $null
 [System.Windows.Forms.RichTextBox]$RichTextBox3 = $null
 [System.Windows.Forms.Button]$buttonLoadConfig = $null
 [System.Windows.Forms.SplitContainer]$splitContainer1 = $null
-[System.Windows.Forms.TableLayoutPanel]$tableLayoutPanel1 = $null
 [System.Windows.Forms.FlowLayoutPanel]$flowLayoutPanel1 = $null
 [System.Windows.Forms.TableLayoutPanel]$tableLayoutPanel3 = $null
 [System.Windows.Forms.RichTextBox]$RichTextBox4 = $null
@@ -28,15 +26,14 @@ $dndTranslatorPOSH_DMScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.TextBox]$textBox2 = $null
 [System.Windows.Forms.Button]$button3 = $null
 [System.Windows.Forms.FolderBrowserDialog]$folderBrowserDialog1 = $null
+[System.Windows.Forms.Button]$button2 = $null
 [System.Windows.Forms.OpenFileDialog]$openFileDialog1 = $null
 function InitializeComponent
 {
 $openFileDialog1 = (New-Object -TypeName System.Windows.Forms.OpenFileDialog)
 $TabPage2 = (New-Object -TypeName System.Windows.Forms.TabPage)
 $splitContainer1 = (New-Object -TypeName System.Windows.Forms.SplitContainer)
-$tableLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
 $flowLayoutPanel1 = (New-Object -TypeName System.Windows.Forms.FlowLayoutPanel)
-$label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $tableLayoutPanel3 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
 $Label6 = (New-Object -TypeName System.Windows.Forms.Label)
 $label2 = (New-Object -TypeName System.Windows.Forms.Label)
@@ -59,12 +56,12 @@ $button3 = (New-Object -TypeName System.Windows.Forms.Button)
 $RichTextBox3 = (New-Object -TypeName System.Windows.Forms.RichTextBox)
 $buttonLoadConfig = (New-Object -TypeName System.Windows.Forms.Button)
 $folderBrowserDialog1 = (New-Object -TypeName System.Windows.Forms.FolderBrowserDialog)
+$button2 = (New-Object -TypeName System.Windows.Forms.Button)
 $TabPage2.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$splitContainer1).BeginInit()
 $splitContainer1.Panel1.SuspendLayout()
 $splitContainer1.Panel2.SuspendLayout()
 $splitContainer1.SuspendLayout()
-$tableLayoutPanel1.SuspendLayout()
 $tableLayoutPanel3.SuspendLayout()
 $TabControl1.SuspendLayout()
 $TabPage1.SuspendLayout()
@@ -95,7 +92,7 @@ $splitContainer1.Name = [System.String]'splitContainer1'
 #
 #splitContainer1.Panel1
 #
-$splitContainer1.Panel1.Controls.Add($tableLayoutPanel1)
+$splitContainer1.Panel1.Controls.Add($flowLayoutPanel1)
 #
 #splitContainer1.Panel2
 #
@@ -104,42 +101,18 @@ $splitContainer1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList 
 $splitContainer1.SplitterDistance = [System.Int32]237
 $splitContainer1.TabIndex = [System.Int32]18
 #
-#tableLayoutPanel1
-#
-$tableLayoutPanel1.ColumnCount = [System.Int32]1
-$tableLayoutPanel1.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]50)))
-$tableLayoutPanel1.Controls.Add($flowLayoutPanel1,[System.Int32]0,[System.Int32]1)
-$tableLayoutPanel1.Controls.Add($label1,[System.Int32]0,[System.Int32]0)
-$tableLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]7,[System.Int32]3))
-$tableLayoutPanel1.Name = [System.String]'tableLayoutPanel1'
-$tableLayoutPanel1.RowCount = [System.Int32]2
-$tableLayoutPanel1.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]10.46154)))
-$tableLayoutPanel1.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]89.53846)))
-$tableLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]220,[System.Int32]325))
-$tableLayoutPanel1.TabIndex = [System.Int32]0
-#
 #flowLayoutPanel1
 #
 $flowLayoutPanel1.AutoScroll = $true
 $flowLayoutPanel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $flowLayoutPanel1.Dock = [System.Windows.Forms.DockStyle]::Fill
 $flowLayoutPanel1.FlowDirection = [System.Windows.Forms.FlowDirection]::TopDown
-$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]37))
+$flowLayoutPanel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $flowLayoutPanel1.Name = [System.String]'flowLayoutPanel1'
-$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]214,[System.Int32]285))
+$flowLayoutPanel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]495))
 $flowLayoutPanel1.TabIndex = [System.Int32]24
-#
-#label1
-#
-$label1.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left)
-$label1.AutoSize = $true
-$label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]10.125,([System.Drawing.FontStyle][System.Drawing.FontStyle]::Bold -bor [System.Drawing.FontStyle]::Underline),[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]4))
-$label1.Name = [System.String]'label1'
-$label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]124,[System.Int32]30))
-$label1.TabIndex = [System.Int32]23
-$label1.Text = [System.String]'Player Info'
-$label1.UseCompatibleTextRendering = $true
+$flowLayoutPanel1.WrapContents = $false
+$flowLayoutPanel1.add_Paint($flowLayoutPanel1_Paint)
 #
 #tableLayoutPanel3
 #
@@ -148,6 +121,7 @@ $tableLayoutPanel3.ColumnCount = [System.Int32]3
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
 $tableLayoutPanel3.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle))
+$tableLayoutPanel3.Controls.Add($button2,[System.Int32]0,[System.Int32]16)
 $tableLayoutPanel3.Controls.Add($Label6,[System.Int32]0,[System.Int32]10)
 $tableLayoutPanel3.Controls.Add($label2,[System.Int32]0,[System.Int32]0)
 $tableLayoutPanel3.Controls.Add($ButtonReceive,[System.Int32]1,[System.Int32]8)
@@ -438,6 +412,19 @@ $buttonLoadConfig.UseCompatibleTextRendering = $true
 $buttonLoadConfig.UseVisualStyleBackColor = $false
 $buttonLoadConfig.add_Click($buttonLoadConfig_Click)
 #
+#button2
+#
+$button2.AutoSize = $true
+$button2.AutoSizeMode = [System.Windows.Forms.AutoSizeMode]::GrowAndShrink
+$button2.BackColor = [System.Drawing.Color]::PowderBlue
+$button2.Dock = [System.Windows.Forms.DockStyle]::Left
+$button2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]438))
+$button2.Name = [System.String]'button2'
+$button2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]165,[System.Int32]54))
+$button2.TabIndex = [System.Int32]28
+$button2.Text = [System.String]'Add player config file'
+$button2.UseVisualStyleBackColor = $false
+#
 #dndTranslatorPOSH_DMScreen
 #
 $dndTranslatorPOSH_DMScreen.BackColor = [System.Drawing.Color]::SkyBlue
@@ -453,8 +440,6 @@ $splitContainer1.Panel1.ResumeLayout($false)
 $splitContainer1.Panel2.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$splitContainer1).EndInit()
 $splitContainer1.ResumeLayout($false)
-$tableLayoutPanel1.ResumeLayout($false)
-$tableLayoutPanel1.PerformLayout()
 $tableLayoutPanel3.ResumeLayout($false)
 $tableLayoutPanel3.PerformLayout()
 $TabControl1.ResumeLayout($false)
@@ -468,14 +453,12 @@ Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name label2 -Value $label2 
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name buttonSend -Value $buttonSend -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name Label6 -Value $Label6 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name ButtonReceive -Value $ButtonReceive -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name label1 -Value $label1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name label4 -Value $label4 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name TabControl1 -Value $TabControl1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name TabPage1 -Value $TabPage1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name RichTextBox3 -Value $RichTextBox3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name buttonLoadConfig -Value $buttonLoadConfig -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name splitContainer1 -Value $splitContainer1 -MemberType NoteProperty
-Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name tableLayoutPanel1 -Value $tableLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name flowLayoutPanel1 -Value $flowLayoutPanel1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name tableLayoutPanel3 -Value $tableLayoutPanel3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name RichTextBox4 -Value $RichTextBox4 -MemberType NoteProperty
@@ -490,6 +473,7 @@ Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name comboBox1 -Value $comb
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name textBox2 -Value $textBox2 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name button3 -Value $button3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name folderBrowserDialog1 -Value $folderBrowserDialog1 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name button2 -Value $button2 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name openFileDialog1 -Value $openFileDialog1 -MemberType NoteProperty
 }
 . InitializeComponent
