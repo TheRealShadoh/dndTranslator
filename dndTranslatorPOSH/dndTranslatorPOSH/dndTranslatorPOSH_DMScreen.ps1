@@ -1,4 +1,28 @@
-﻿$RichTextBox2_Click = {
+﻿$button3_Click = {
+		#$openFileDialog1.Filter =    #Add filtering here for .json
+$playerFile = $openFileDialog1.showDialog()
+$playerFile = $openFileDialog1.FileName
+$players =  Get-Content $playerFile -Raw | ConvertFrom-Json
+
+
+#update UI elements
+New-PlayerInfo -PlayersInfo $global:data.players -TargetPanel $flowLayoutPanel1
+
+$groupBoxCharLanguages = (New-Object -TypeName System.Windows.Forms.GroupBox)
+$groupBoxCharLanguages.Controls.Add($labelLanguage)
+$groupBoxCharLanguages.AutoSize = $false
+$groupBoxCharLanguages.Name = [System.String]"groupBoxCharLanguages"
+$groupBoxCharLanguages.Text = [System.String]"Known Languages"
+$groupBoxCharLanguages.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]200, [System.Int32]200))
+$groupBoxCharLanguages.UseCompatibleTextRendering = $true
+New-PlayerLanguages -PlayerLanguages $global:data.players.charLanguages -TargetPanel $groupBoxCharLanguages
+
+$flowLayoutPanel1.Controls.Add($groupBoxCharLanguages)
+
+$TabControl1.SelectedTab = $TabPage2
+}
+
+$RichTextBox2_Click = {
 	if($richtextbox2.Text -eq 'The person you are looking for may have come through this area, a few coins may help me remember.'){
 	$richtextbox2.Clear()
 }
@@ -15,14 +39,14 @@ if($richtextbox4.Text -eq'Paste (Ctrl + v) into me!'){
 }
 
 $button1_Click = {
-	#$openFileDialog1.Filter =    #Add filtering here for .json
-$playerFile = $openFileDialog1.showDialog()
-$playerFile = $openFileDialog1.FileName
-$players =  Get-Content $playerFile -Raw | ConvertFrom-Json
+		#$openFileDialog1.Filter =    #Add filtering here for .json
+$playerFile = $folderbrowserdialog1.showDialog()
+$playerFile = $folderbrowserdialog1.SelectedPath
+$players =  Get-childitem $playerFile | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}
 
 
 #update UI elements
-New-PlayerInfo -PlayersInfo $global:data.players -TargetPanel $flowLayoutPanel1
+New-PlayerInfo -PlayersInfo $players -TargetPanel $flowLayoutPanel1
 
 $groupBoxCharLanguages = (New-Object -TypeName System.Windows.Forms.GroupBox)
 $groupBoxCharLanguages.Controls.Add($labelLanguage)

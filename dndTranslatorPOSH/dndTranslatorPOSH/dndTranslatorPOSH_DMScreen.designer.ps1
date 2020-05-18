@@ -1,4 +1,4 @@
-﻿[void][System.Reflection.Assembly]::Load('System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a')
+[void][System.Reflection.Assembly]::Load('System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a')
 [void][System.Reflection.Assembly]::Load('System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089')
 $dndTranslatorPOSH_DMScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.TabPage]$TabPage2 = $null
@@ -26,6 +26,8 @@ $dndTranslatorPOSH_DMScreen = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$label3 = $null
 [System.Windows.Forms.ComboBox]$comboBox1 = $null
 [System.Windows.Forms.TextBox]$textBox2 = $null
+[System.Windows.Forms.Button]$button3 = $null
+[System.Windows.Forms.FolderBrowserDialog]$folderBrowserDialog1 = $null
 [System.Windows.Forms.OpenFileDialog]$openFileDialog1 = $null
 function InitializeComponent
 {
@@ -51,10 +53,12 @@ $textBox2 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $TabControl1 = (New-Object -TypeName System.Windows.Forms.TabControl)
 $TabPage1 = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TableLayoutPanel2 = (New-Object -TypeName System.Windows.Forms.TableLayoutPanel)
-$button1 = (New-Object -TypeName System.Windows.Forms.Button)
 $richTextBox5 = (New-Object -TypeName System.Windows.Forms.RichTextBox)
+$button1 = (New-Object -TypeName System.Windows.Forms.Button)
+$button3 = (New-Object -TypeName System.Windows.Forms.Button)
 $RichTextBox3 = (New-Object -TypeName System.Windows.Forms.RichTextBox)
 $buttonLoadConfig = (New-Object -TypeName System.Windows.Forms.Button)
+$folderBrowserDialog1 = (New-Object -TypeName System.Windows.Forms.FolderBrowserDialog)
 $TabPage2.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$splitContainer1).BeginInit()
 $splitContainer1.Panel1.SuspendLayout()
@@ -354,31 +358,18 @@ $TableLayoutPanel2.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.C
 $TableLayoutPanel2.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]20)))
 $TableLayoutPanel2.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]20)))
 $TableLayoutPanel2.ColumnStyles.Add((New-Object -TypeName System.Windows.Forms.ColumnStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]20)))
-$TableLayoutPanel2.Controls.Add($button1,[System.Int32]2,[System.Int32]2)
 $TableLayoutPanel2.Controls.Add($richTextBox5,[System.Int32]1,[System.Int32]0)
+$TableLayoutPanel2.Controls.Add($button1,[System.Int32]2,[System.Int32]1)
+$TableLayoutPanel2.Controls.Add($button3,[System.Int32]2,[System.Int32]2)
 $TableLayoutPanel2.Dock = [System.Windows.Forms.DockStyle]::Fill
 $TableLayoutPanel2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]3))
 $TableLayoutPanel2.Name = [System.String]'TableLayoutPanel2'
 $TableLayoutPanel2.RowCount = [System.Int32]3
 $TableLayoutPanel2.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]64.01945)))
-$TableLayoutPanel2.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]2.431118)))
-$TableLayoutPanel2.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]33.33333)))
+$TableLayoutPanel2.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]27.7666)))
+$TableLayoutPanel2.RowStyles.Add((New-Object -TypeName System.Windows.Forms.RowStyle -ArgumentList @([System.Windows.Forms.SizeType]::Percent,[System.Single]8.249497)))
 $TableLayoutPanel2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]947,[System.Int32]497))
 $TableLayoutPanel2.TabIndex = [System.Int32]11
-#
-#button1
-#
-$button1.AutoSize = $true
-$button1.AutoSizeMode = [System.Windows.Forms.AutoSizeMode]::GrowAndShrink
-$button1.BackColor = [System.Drawing.Color]::PowderBlue
-$button1.Dock = [System.Windows.Forms.DockStyle]::Fill
-$button1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]381,[System.Int32]333))
-$button1.Name = [System.String]'button1'
-$button1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]183,[System.Int32]161))
-$button1.TabIndex = [System.Int32]0
-$button1.Text = [System.String]'Load Player Config (.json)'
-$button1.UseVisualStyleBackColor = $false
-$button1.add_Click($button1_Click)
 #
 #richTextBox5
 #
@@ -392,6 +383,34 @@ $richTextBox5.ReadOnly = $true
 $richTextBox5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]561,[System.Int32]312))
 $richTextBox5.TabIndex = [System.Int32]1
 $richTextBox5.Text = [System.String]'Text about loading config files... should fill this out from a json config file'
+#
+#button1
+#
+$button1.AutoSize = $true
+$button1.AutoSizeMode = [System.Windows.Forms.AutoSizeMode]::GrowAndShrink
+$button1.BackColor = [System.Drawing.Color]::PowderBlue
+$button1.Dock = [System.Windows.Forms.DockStyle]::Fill
+$button1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]381,[System.Int32]321))
+$button1.Name = [System.String]'button1'
+$button1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]183,[System.Int32]131))
+$button1.TabIndex = [System.Int32]0
+$button1.Text = [System.String]'Load folder w/player configs'
+$button1.UseVisualStyleBackColor = $false
+$button1.add_Click($button1_Click)
+#
+#button3
+#
+$button3.AutoSize = $true
+$button3.AutoSizeMode = [System.Windows.Forms.AutoSizeMode]::GrowAndShrink
+$button3.BackColor = [System.Drawing.Color]::PowderBlue
+$button3.Dock = [System.Windows.Forms.DockStyle]::Fill
+$button3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]381,[System.Int32]458))
+$button3.Name = [System.String]'button3'
+$button3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]183,[System.Int32]36))
+$button3.TabIndex = [System.Int32]3
+$button3.Text = [System.String]'Load single config file'
+$button3.UseVisualStyleBackColor = $false
+$button3.add_Click($button3_Click)
 #
 #RichTextBox3
 #
@@ -469,6 +488,8 @@ Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name RichTextBox1 -Value $R
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name label3 -Value $label3 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name comboBox1 -Value $comboBox1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name textBox2 -Value $textBox2 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name button3 -Value $button3 -MemberType NoteProperty
+Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name folderBrowserDialog1 -Value $folderBrowserDialog1 -MemberType NoteProperty
 Add-Member -InputObject $dndTranslatorPOSH_DMScreen -Name openFileDialog1 -Value $openFileDialog1 -MemberType NoteProperty
 }
 . InitializeComponent
