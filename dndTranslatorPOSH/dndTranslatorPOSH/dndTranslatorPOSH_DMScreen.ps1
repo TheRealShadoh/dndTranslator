@@ -81,9 +81,8 @@ $dataDir =  Split-Path -Parent $dataDir
 $dataDir =  Split-Path -Parent $dataDir
 
 #endregion Pathing
+Import-Module  dndTranslatorPOSH -Verbose
 
-. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_DMScreen.designer.ps1')
-Import-Module  dndTranslatorPOSH-modules.psd1 -Force -Verbose
 
 $global:data = @{ } #share data between scopes
 
@@ -98,5 +97,7 @@ $global:data.Add('langmap', $langMap)
 #$npcs = Get-childitem C:\git\dndTranslator\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 $global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
+
+. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_DMScreen.designer.ps1')
 
 $dndTranslatorPOSH_DMScreen.ShowDialog()
