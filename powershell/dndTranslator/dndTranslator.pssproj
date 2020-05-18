@@ -7,6 +7,12 @@
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
     <Name>dndTranslator</Name>
+    <PackageAsExecutable>True</PackageAsExecutable>
+    <PackageEntryPoint>DMScreen.ps1</PackageEntryPoint>
+    <HideConsoleWindow>True</HideConsoleWindow>
+    <DotNetVersion>v4.7.2</DotNetVersion>
+    <PackageType>Console</PackageType>
+    <StartupFile>PlayerScreen.ps1</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

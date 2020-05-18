@@ -53,18 +53,15 @@ $dndTranslatorPOSH_PlayerScreen_Load = {
 
 
 #region Pathing
-$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_PlayerScreen_Load.file
+$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_DMScreen_Load.file
 $dataDir =  Split-Path -Parent $workingDir
 $dataDir =  Split-Path -Parent $dataDir
 #endregion Pathing
 
 
-<# DEBUG PATHS
-. (Join-Path $workingDir 'dndTranslatorPOSH_DMScreen.designer.ps1')
-Import-Module  "$workingDir\dndTranslatorPOSH-modules\dndTranslatorPOSH-modules.psd1"-Force -Verbose
-#>
-. (Join-Path $PSScriptRoot 'dndTranslatorPOSH_DMScreen.designer.ps1')
-Import-Module  dndTranslatorPOSH -Verbose
+. (Join-Path $workingDir 'dndTranslatorPOSH_PlayerScreen.designer.ps1')
+Import-Module  "$workingDir\dndTranslatorPOSH\dndTranslatorPOSH.psd1"-Force -Verbose
+
 
 
 $global:data = @{ } #share data between scopes
