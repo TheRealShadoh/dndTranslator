@@ -1,4 +1,9 @@
 # dndTranslator
+Beginnings of https://github.com/TheRealShadoh/dndToolkit 
+Most recent version at that link.
+
+
+
 ## Team
 - GMZeirith
 - exeldrian
